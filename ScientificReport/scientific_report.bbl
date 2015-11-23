@@ -1,0 +1,15 @@
+\begin{thebibliography}{Mah36}
+
+\bibitem[Mah36]{mahalanobis1936}
+P.~C. Mahalanobis.
+\newblock On the generalised distance in statistics.
+\newblock In {\em Proceedings National Institute of Science, India}, volume~2,
+  pages 49--55, April 1936.
+
+\bibitem[Ros58]{rosenblatt58}
+Frank Rosenblatt.
+\newblock The perceptron: A probabilistic model for information storage and
+  organization in the brain.
+\newblock {\em Psychological Review}, 65(6):386--408, 1958.
+
+\end{thebibliography}

@@ -1,0 +1,1 @@
+Simply run main.m to view animated plotting of AND-, OR-, XOR-problems and plotting of given perceptrondata (all with decision boundaries).

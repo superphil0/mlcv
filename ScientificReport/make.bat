@@ -1,0 +1,4 @@
+pdflatex scientific_report.tex
+bibtex scientific_report
+pdflatex scientific_report.tex
+pdflatex scientific_report.tex
