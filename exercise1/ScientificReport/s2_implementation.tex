@@ -1,3 +1,11 @@
 \section{Einfacher Klassifikator}
 \label{ch:implementation}
 
+Der einfache Klassifikator stellt in unserem Fall eine memory Funktion da. Das heißt, dass wenn wir einen Datensatz schon gesehen haben, geben wir dessen Werte aus. Wenn wir diesen noch nicht gesehen haben geben wir einen negativen Wert zurück. Nachdem wir alle möglichen Zahlenkombinationen gesehen haben, haben wir einen perfekten Klassifikator. 
+
+
+
+\subsection{Warum overfitted die Funktion memory? Was bedeutet Overfitting in Zusammenhang mit dem Lernen von Klassifikatoren?} 
+
+Der Klassifikator hat auf dem Trainingset 100 \% da er die selben Werte wiedererkennt. Dafür kann man mit diesem Klassifikator nicht generalisieren. Wenn auch nur einer der Werte minimal abweicht bekommt man immer einen negativen Returnwert obwohl es eigentlich viel wahrscheinlicher ist, dass dieser Wert den selben output wert hat als sein minimal unterschiedlicher Nachbar. Daher kann man mit diesem Klassifikator nicht generalisieren.Durch die fehlende Generalisierung werden viele Daten falsch klassifieziert. Dadurch ist die Performance außerhalb des Testsets, wie man bei unseren Resultaten sehen kann sehr schlecht. 
+
