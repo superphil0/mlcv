@@ -3,7 +3,7 @@ function [ y ] = memory( data, target, x)
 % if x is contained in data then output the corresponding target
 % if not output -1
 
-xSize = size(x,1);
+xSize = size(x,2);
 
 y = -1;
 
