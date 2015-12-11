@@ -33,6 +33,8 @@ Die Schrittweite oder Lernrate $\gamma$ kann man so verstehen, dass die Entschei
 \end{figure}
 
 \subsection{Vergleichen Sie das Perzeptron mit der Funktion memory. Worin liegt der Unterschied?}
-Bei memory werden nur Punkte erkannt die im Trainingsset vorhanden waren, das Perzeptron generalisiert jedoch das Problem in dem es eine Entscheidungsgrenze einführt und auch auf neue Daten angewandt werden kann.
+Bei memory werden nur Punkte erkannt die im Trainingsset vorhanden waren. Bei allen anderen Punkte ratet die memory Funktion. Das Perzeptron widerum kann auf Grund der eingegangen Daten generalisieren. Dadurch können neue, unbekannte Daten dennoch mit einer höheren Wahrscheinlichkeit richtig klassifiziert werden. Daher führt das Perzeptron eine Entscheidungsgrenze ein, welche dann für die neuen Daten angewandt werden kann. Dadurch wird das Overfitting vermindert oder ganz vermieden.
+
+
 \subsection{Wie ist das Verhalten bei nicht linear separierbaren Daten?}
 Die Entscheidungsgrenze bildet ein Ausgleichsgerade zwischen den zwei Klassen, wie in der Vorlesung gesehen, minimiert sie theoretisch den Abstand zu beiden Klassen, allerdings osziliert sie in aufeinanderfolgenden Iterationen in der Region in der sich die Klassen überlappen, weil jede falsche Klassifikation die Entscheidungsgrenze verschiebt, weil es aber immer falsche Klassifikationen geben wird, wird auch die Entscheidungsgrenze immer hin und her geschoben.
