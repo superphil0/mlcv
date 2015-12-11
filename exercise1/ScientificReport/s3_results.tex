@@ -2,9 +2,13 @@
 
 Das Perceptron ist eine einfache Variante eines neuronalen Netzes. Das Prinzip wurde erstmals im Jahre 1958 von Frank Rosenblatt veröffentlicht\cite{rosenblatt58}. Es handelt sich dabei um eine lineare Diskriminantenfunktion. Während des Lernvorganges wird ein Vektor mit Gewichten erstellt, welcher dann anschließend eine Klassifikation vornimmt. Das Ergebnis wird anschließend durch eine Signum-Funktion dargstellt.
 
-\subsection{Untersuchen sie den Trainingsalgorithmus: Welche Eigenschaften der Daten beeinflussen die durchschnittliche Anzahl an Iterationen bis eine Lsung w* gefunden wurde?}
+\subsection{Untersuchen sie den Trainingsalgorithmus: Welche Eigenschaften der Daten beeinflussen die durchschnittliche Anzahl an Iterationen bis eine Lösung w* gefunden wurde?}
+Wenn die Daten linear separierbar ist kann immer eine obere Grenze für die Anzahl der Iterationen bis zur Konvergenz zu einer optimalen Lösung gefunden werden.
+Die lineare Separierbarkeit ist eine Eigenschaft die die Anzahl der Schritte beeinflust, je besser separierbar desto schnellere Konvergenz, weil die Verschiebung in jedem Schritt optimal ist. Allerdings ist bei nicht linear separierbaren Daten nicht garantiert, dass immer eine optimale Lösung gefunden wird. Außerdem terminiert der Algorithmus nie, weil die Daten ja nicht linear separiert werden können. \par{Es kommt auch darauf an, wieviele Elemente welcher Klasse existieren, wenn Klasse 1 viel mehr Elemente als Klasse 2 hat, wird die Entscheidungsgrenze so verschoben dass Klasse 1 öfter richtig klassifiziert wird (weil ja mehr Elemente mehr zum Gewichtsvektor beitragen)}
 
 \subsection{Welchen Einufluss hat die Schrittweite?}
+Die Schrittweite oder Lernrate $\gamma$ kann man so verstehen, dass die Entscheidungsgrenze immer um den Richtungsvektor * lernrate verschoben wird. Wenn die Lernrate zu groß wird, können optimale Lösungen Übersprungen werden ( wenn wir uns den Lösungsraum im Dreidimensionalen vorstellen so kann ein Tal einfach übersprungen werden), ist die Lernrate zu klein, so kann es passieren, dass man in einem lokalen Optimal stecken bleiben kann.
+
 \subsection{Plotten Sie Daten und Entscheidungsgrenze (analog zu Punkt 1.1).}
 \begin{figure}
 	
@@ -29,4 +33,6 @@ Das Perceptron ist eine einfache Variante eines neuronalen Netzes. Das Prinzip w
 \end{figure}
 
 \subsection{Vergleichen Sie das Perzeptron mit der Funktion memory. Worin liegt der Unterschied?}
+Bei memory werden nur Punkte erkannt die im Trainingsset vorhanden waren, das Perzeptron generalisiert jedoch das Problem in dem es eine Entscheidungsgrenze einführt und auch auf neue Daten angewandt werden kann.
 \subsection{Wie ist das Verhalten bei nicht linear separierbaren Daten?}
+Die Entscheidungsgrenze bildet ein Ausgleichsgerade zwischen den zwei Klassen, wie in der Vorlesung gesehen, minimiert sie theoretisch den Abstand zu beiden Klassen, allerdings osziliert sie in aufeinanderfolgenden Iterationen in der Region in der sich die Klassen überlappen, weil jede falsche Klassifikation die Entscheidungsgrenze verschiebt, weil es aber immer falsche Klassifikationen geben wird, wird auch die Entscheidungsgrenze immer hin und her geschoben.

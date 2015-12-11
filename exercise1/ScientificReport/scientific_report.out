@@ -1,9 +1,0 @@
-\BOOKMARK [1][-]{section.1}{Datengenerierung}{}% 1
-\BOOKMARK [1][-]{section.2}{Einfacher Klassifikator}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Warum overfitted die Funktion memory? Was bedeutet Overfitting in Zusammenhang mit dem Lernen von Klassifikatoren?}{section.2}% 3
-\BOOKMARK [1][-]{section.3}{Perceptron}{}% 4
-\BOOKMARK [2][-]{subsection.3.1}{Untersuchen sie den Trainingsalgorithmus: Welche Eigenschaften der Daten beeinflussen die durchschnittliche Anzahl an Iterationen bis eine Lsung w* gefunden wurde?}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.2}{Welchen Einufluss hat die Schrittweite?}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.3}{Plotten Sie Daten und Entscheidungsgrenze \(analog zu Punkt 1.1\).}{section.3}% 7
-\BOOKMARK [2][-]{subsection.3.4}{Vergleichen Sie das Perzeptron mit der Funktion memory. Worin liegt der Unterschied?}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.5}{Wie ist das Verhalten bei nicht linear separierbaren Daten?}{section.3}% 9
