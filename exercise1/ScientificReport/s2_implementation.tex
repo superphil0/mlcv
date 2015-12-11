@@ -5,7 +5,7 @@ Der einfache Klassifikator stellt in unserem Fall eine memory Funktion da. Das h
 
 \subsection{Beweis: memory aus der Hypothesenklasse der Polynome.}
 
-Um zu zeigen, dass memory aus der Hypothesenklasse der Polynome mit Schwellwert sind, müssen wir für jeden Trainingsdatensatz zeigen, dass ein Polynom $p$, welches den Wert $y = 1$ genau dann annimmt wenn $p(x) \ge 0$. 
+Um zu zeigen, dass memory aus der Hypothesenklasse der Polynome mit Schwellwert ist, müssen wir für jeden Trainingsdatensatz zeigen, dass ein Polynom $p$, welches den Wert $y = 1$ genau dann annimmt wenn $p(x) \ge 0$. 
 
 Aus $n + 1$ Punkten kann man sich mittels Polynominterpolation immer ein eindeutiges Polynom nten Grades zusammensuchen. Daher können wir aus unserem Set aus $n$ Trainingsdaten mit Hilfe der Lagrangesche Interpolationsformel ~\cite{norlund2013vorlesungen} ein Polynom $P$ nten Grades erzeugen, welches alle Punkte in dem Trainingset trifft und den dementsprechenden Wert annimmt. Daher können wir den Schwellwert gleich 1 setzen. Denn für jeden Punkt im Trainingsset gilt, entweder $y = 1$ oder $y = -1$ und damit gilt für das erzeugte Polynom $P$, dass $P(x) >= 1$ genau dann gilt, wenn dass y dazu gleich 1 ist.
 
