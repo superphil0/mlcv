@@ -21,4 +21,4 @@ for i = 1:size(test,1)
 end;
 
 s = '%';
-fprintf('%f%s on test data Set', correct / size(test,1),s);
+fprintf('%f%s on test data Set', correct / size(test,1) * 100,s);
