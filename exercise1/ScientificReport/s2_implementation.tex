@@ -1,3 +1,24 @@
 \section{Einfacher Klassifikator}
 \label{ch:implementation}
 
+Der einfache Klassifikator stellt in unserem Fall eine memory Funktion da. Das heißt, dass wenn wir einen Datensatz schon gesehen haben, geben wir dessen Werte aus. Wenn wir diesen noch nicht gesehen haben, geben wir einen negativen Wert zurück. Nachdem wir alle möglichen Zahlenkombinationen gesehen haben, haben wir einen perfekten Klassifikator. 
+
+\subsection{Beweis: memory aus der Hypothesenklasse der Polynome.}
+
+Um zu zeigen, dass memory aus der Hypothesenklasse der Polynome mit Schwellwert ist, müssen wir für jeden Trainingsdatensatz zeigen, dass ein Polynom $p$, welches den Wert $y = 1$ genau dann annimmt wenn $p(x) \ge 0$. 
+
+Aus $n + 1$ Punkten kann man sich mittels Polynominterpolation immer ein eindeutiges Polynom nten Grades zusammensuchen. Daher können wir aus unserem Set aus $n$ Trainingsdaten mit Hilfe der Lagrangesche Interpolationsformel ~\cite{norlund2013vorlesungen} ein Polynom $P$ nten Grades erzeugen, welches alle Punkte in dem Trainingset trifft und den dementsprechenden Wert annimmt. Daher können wir den Schwellwert gleich 1 setzen. Denn für jeden Punkt im Trainingsset gilt, entweder $y = 1$ oder $y = -1$ und damit gilt für das erzeugte Polynom $P$, dass $P(x) >= 1$ genau dann gilt, wenn dass y dazu gleich 1 ist.
+
+
+
+\subsection{Warum overfitted die Funktion memory? Was bedeutet Overfitting in Zusammenhang mit dem Lernen von Klassifikatoren?} 
+
+Der Klassifikator hat auf dem Trainingset 100 \%, da er die selben Werte wiedererkennt. Dafür kann man mit diesem Klassifikator nicht generalisieren. Wenn auch nur einer der Werte minimal abweicht, bekommt man immer einen negativen Returnwert, obwohl es eigentlich viel wahrscheinlicher ist, dass dieser Wert denselben Output-Wert hat als sein minimal unterschiedlicher Nachbar. Daher kann man mit diesem Klassifikator nicht generalisieren. Durch die fehlende Generalisierung werden viele Daten falsch klassifiziert. Dadurch ist die Performance außerhalb des Testsets, wie man bei unseren Resultaten sehen kann sehr schlecht. 
+
+
+\subsection{Overfitting von polynomiellen Klassifikatoren}
+
+Overfitting ist ein generelles Problem im maschinellen Lernen. Es ist sehr wichtig, dass ein Lernalgorithmus gut generalisiert, um richtig auf neue Daten reagieren zu können. Man muss sich daher bei allen Klassifikatoren, welche aus einem Polynom mit nachfolgendem Schwellwert bestehen überlegen ob diese nicht Overfitten. Speziell betroffen sind Polynome höherer Ordnungen, da diese dazu tendieren auch Ausreißer irgendwie noch in das Polynom hineinzubiegen und damit nicht mehr gut generalisieren. Das zeigt sich dann daran, dass der Algorithmus auf echten, noch nicht gesehenen Daten sehr schlecht reagiert. 
+
+Ein zusätzliches Problem bei Polynomen mit Schwellwert ist, dass man diese vorher fix wählt. Daher man muss genau wissen, wie die Daten später vorkommen werden, um eine sinnvolle Hypothese abgeben zu können. Das verstärkt das Problem mit Overfitting noch. 
+

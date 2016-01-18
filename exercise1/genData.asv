@@ -1,6 +1,5 @@
 function [ data, target ] = genData( n, d, stepwidth, separateable, mean1, cov1, mean2, cov2)
 %GENDATA Generate Data for the Exercise
-%genData( n, d, stepwidth, separateable, mean1, cov1, mean2, cov2)
 %   n specifies the amount of observations in d Dimensions
 %   n/2 observations should be distributed according to mean1 and cov1
 %   the other n/2 observations according to mean2 and cov2
@@ -18,9 +17,7 @@ dist2 = repmat(mean2, n/2, 1) + randn(n/2, d) * chol(cov2);
 
 data = [dist1; dist2];
 
-if (stepwidth ~= 0)
-    data = round(data / stepwidth) * stepwidth; %round the data according to stepwidth
-end
+data = round(data / stepwidth) * stepwidth; %round the data according to stepwidth
 
 if (separateable)
     middle = (mean1 + mean2) / 2;
@@ -60,7 +57,7 @@ if (separateable)
                 last_shift=1;
             end
         end
-        loop_runs = loop_runs + 1;
+        loop_runs = loop_runs+1;
     end
     
 else
