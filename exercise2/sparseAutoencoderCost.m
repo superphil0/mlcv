@@ -41,19 +41,36 @@ b2grad = zeros(size(b2));
 % Stated differently, if we were using batch gradient descent to optimize the parameters,
 % the gradient descent update to W1 would be W1 := W1 - alpha * W1grad, and similarly for W2, b1, b2. 
 % 
+m = size(data,2);
 
 
+% do feed forward pass to calculate all a(i)l
+a1 = data;
+z2 = W1 * data + repmat(b1,1,m);
+a2 = sigmoid(z2);
+z3 = W2 * a2 + repmat(b2,1,m);
+H = sigmoid(z3);
+
+% sum for each layer all activations 
+phat2 = mean(a2,2);
+phat3 = sum(H,2)/m;
+
+% calculate deltas
+delta3 = -(data-H) .* H .* (1-H);
+delta2 = W2' * delta3 .* a2 .* (1-a2); %+ 0*beta*KL(sparsityParam, phat2)*fder(z2);
 
 
+% calculate derivative
+W2grad = (delta3*a2') / m + lambda*W2;
+W1grad = (delta2*a1') / m + lambda*W1;
+b1grad = sum(delta3,2) / m;
+b2grad = sum(delta2,2) / m;
 
 
-
-
-
-
-
-
-
+%calculate cost
+penalty = KL(sparsityParam,phat2) +KL(sparsityParam,phat3);
+J = sum(sum((H-data).^2))/2*m +lambda/2 * (sum(sum(W1.^2))+sum(sum(W2.^2)));
+cost = sum( J + beta*penalty);
 
 
 
@@ -75,7 +92,14 @@ end
 % column) vector (say (z1, z2, z3)) and returns (f(z1), f(z2), f(z3)). 
 
 function sigm = sigmoid(x)
-  
     sigm = 1 ./ (1 + exp(-x));
 end
 
+function kl = KL(p,phat)
+    kl = p*log(p./phat) + (1-p)*log((1-p)./(1-phat));
+end
+
+function derSig = fder(z)
+    sigZ = sigmoid(z);
+    derSig = sigZ.*(1-sigZ);
+end
