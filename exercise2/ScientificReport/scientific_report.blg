@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: scientific_report.aux
-A level-1 auxiliary file: s1_introduction.aux
-A level-1 auxiliary file: s2_implementation.aux
-A level-1 auxiliary file: s3_results.aux
+A level-1 auxiliary file: linearRegression.aux
 The style file: alpha.bst
+I found no \citation commands---while reading file scientific_report.aux
 Database file #1: scientific_report.bib
+(There was 1 error message)
