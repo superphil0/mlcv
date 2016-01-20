@@ -20,11 +20,15 @@ numgrad = zeros(size(theta));
 
 
 epsilon = 10^-4;
+% for each dimension
 for i=1:size(theta)
+    % only add gradient in one dimension
     ep = zeros(size(theta));
     ep(i) = epsilon;
     numgrad(i) = (J(theta+ep) -J(theta-ep)) / (2*epsilon);
 end
+% so the sum of all of these gradients in one dimension is the new total
+% gradient
 
 
 
