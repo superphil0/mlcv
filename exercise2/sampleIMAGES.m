@@ -24,12 +24,17 @@ patches = zeros(patchsize*patchsize, numpatches);
 %  patch corresponding to the pixels in the block (21,21) to (30,30) of
 %  Image 1
 imSize = size(IMAGES);
+% how many images?
 amount = imSize(3);
+% what the widht?
 width = imSize(2);
 for i = 1:numpatches
+    %take a random image
     rndImg = randi(amount);
+    % take a random X and Y starting point in the image
     startX = randi(width-patchsize);
     startY = randi(width-patchsize);
+    % add the patch to the list of all patches
     patches(:,i) = reshape(IMAGES(startX:startX+patchsize-1, startY:startY+patchsize-1, rndImg),[64 1]);
 end
 

@@ -44,30 +44,33 @@ b2grad = zeros(size(b2));
 m = size(data,2);
 
 
-% do feed forward pass to calculate all a(i)l
+% do feed forward pass to calculate all outputs of in each layer
 a1 = data;
 z2 = W1 * data + repmat(b1,1,m);
 a2 = sigmoid(z2);
 z3 = W2 * a2 + repmat(b2,1,m);
 H = sigmoid(z3);
 
-% sum for each layer all activations
+% sum for each layer all activations 
 phat = mean(a2,2);
 
-% calculate deltas
+% calculate deltas that is the error between output and activation levels
+% in this case y=x 
 delta3 = -(data-H) .* H .* (1-H);
 betaTerm = beta *(-sparsityParam./phat + (1-sparsityParam)./(1-phat));
 delta2 = (W2' * delta3 + repmat(betaTerm, 1, m)) .* a2 .* (1-a2);
 
 
-% calculate derivative
+% calculate derivative relative to the sparse cost function for each
+% respective variable in each layer
 W2grad = (delta3*a2') / m + lambda*W2;
 W1grad = (delta2*a1') / m + lambda*W1;
 b1grad = sum(delta2,2) / m;
 b2grad = sum(delta3,2) / m;
 
 
-%calculate cost
+%calculate cost with the penalty term beta*penalty for values "far" from
+%our goal value of phat = sparsityParam
 penalty = sum(KL(sparsityParam,phat));
 J = sum(sum((H-data).^2))/(2*m) + lambda/2 * (sum(sum(W1.^2))+sum(sum(W2.^2)));
 cost = sum( J + beta*penalty);
