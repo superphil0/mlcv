@@ -14,4 +14,8 @@ function w = linearRegression(x, y, w, gamma, N)
     end
     
     plot(x_plot,y_plot);
+    legend('weight');
+    title('Weight function');
+    xlabel('iteration t') % x-axis label
+    ylabel('weight(t)') % y-axis label
 end

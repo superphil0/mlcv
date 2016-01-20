@@ -12,6 +12,15 @@ xtrain = [xtrain', xtrain', xtrain'] .^ repmat([0, 1 , 2], size(xtrain,2),1);
 
 w = zeros(1, size(xtrain,2));
 gamma = 0.001;
-nrIterations = 1000;
+nrIterations = 10000;
 
 w = linearRegression(xtrain, ytrain, w, gamma, nrIterations);
+
+w_exact = ((pinv(xtrain*xtrain')*xtrain)'*ytrain')';
+
+w
+w_exact
+figure;
+plotLinearRegression(x,y,w, 'Gradient Descent');
+figure;
+plotLinearRegression(x,y,w_exact, 'Optimal Weight Vector');
