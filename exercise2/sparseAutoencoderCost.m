@@ -96,5 +96,5 @@ function sigm = sigmoid(x)
 end
 
 function kl = KL(p,phat)
-    kl = p*log(p./phat) + (1-p)*log((1-p)./(1-phat));
+    kl = p.*log(p./phat) + (1-p).*log((1-p)./(1-phat));
 end
