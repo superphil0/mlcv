@@ -82,8 +82,8 @@ Our test data is randomly generated and the variance to the real data is also at
 	\begin{minipage}{0.5 \textwidth}
 		\centering
 		\includegraphics[width=1\textwidth]{img/WeightFunction01}
-		\caption{Convergence with $\gamma$ at 0.005}
-		\label{fig:weight05}
+		\caption{Convergence with $\gamma$ at 0.01}
+		\label{fig:weight01}
 	\end{minipage}
 \end{figure}
 
@@ -103,7 +103,7 @@ Our test data is randomly generated and the variance to the real data is also at
 	\end{minipage}
 \end{figure}
 
-As can be seen in Figure \ref{fig:weight1}, \ref{fig:weight1}, \ref{fig:weight05} and \ref{fig:weight001} chosing $\gamma$ is a tradeoff between trainingtime and convergence. Also convergence depends on the random initialization of the training data. However there is a way to make the learning rate smaller in time by setting $\gamma = c/t$, where c is the initial learning rate and t is the current Iteration. For the given training data $\gamma = 1$ diverges as can be seen in Figure \ref{fig:weight1}.
+As can be seen in Figure \ref{fig:weight1}, \ref{fig:weight01}, \ref{fig:weight005} and \ref{fig:weight001} chosing $\gamma$ is a tradeoff between trainingtime and convergence. Also convergence depends on the random initialization of the training data. However there is a way to make the learning rate smaller in time by setting $\gamma = c/t$, where c is the initial learning rate and t is the current Iteration. For the given training data $\gamma = 1$ diverges as can be seen in Figure \ref{fig:weight1}.
 
 
 
